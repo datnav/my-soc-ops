@@ -6,7 +6,9 @@
       "extensions": [
         "vitest.explorer",
         "dbaeumer.vscode-eslint",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
       ]
     },
     "codespaces": {
