@@ -25,6 +25,26 @@
   100% { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
 html,
 body,
 #root {
@@ -63,4 +83,111 @@ body {
   text-shadow:
     1px 1px 0 rgba(255, 251, 240, 0.5),
     -1px -1px 0 rgba(139, 115, 85, 0.1);
+}
+
+/* Scroll-triggered animation utilities */
+@supports (animation-timeline: view()) {
+  .scroll-fade-in {
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .scroll-fade-in-up {
+    animation: fade-in-up linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+
+  .scroll-slide-left {
+    animation: slide-in-left linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+
+  .scroll-slide-right {
+    animation: slide-in-right linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+}
+
+/* Fallback for browsers without animation-timeline support */
+@supports not (animation-timeline: view()) {
+  .scroll-fade-in,
+  .scroll-fade-in-up,
+  .scroll-slide-left,
+  .scroll-slide-right {
+    opacity: 0;
+  }
+
+  .scroll-fade-in.in-view,
+  .scroll-fade-in-up.in-view,
+  .scroll-slide-left.in-view,
+  .scroll-slide-right.in-view {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .scroll-fade-in-up.in-view {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .scroll-slide-left.in-view {
+    animation: slide-in-left 0.6s ease-out forwards;
+  }
+
+  .scroll-slide-right.in-view {
+    animation: slide-in-right 0.6s ease-out forwards;
+  }
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* Parallax effect for decorative elements */
+@media (min-width: 768px) {
+  .parallax-slow {
+    transform: translateY(calc(var(--scroll-progress, 0) * -20px));
+  }
+
+  .parallax-medium {
+    transform: translateY(calc(var(--scroll-progress, 0) * -40px));
+  }
+
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll-progress, 0) * -60px));
+  }
+}
+
+/* Prefers reduced motion - disable all animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-fade-in,
+  .scroll-fade-in-up,
+  .scroll-slide-left,
+  .scroll-slide-right,
+  .scroll-fade-in.in-view,
+  .scroll-fade-in-up.in-view,
+  .scroll-slide-left.in-view,
+  .scroll-slide-right.in-view {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .parallax-slow,
+  .parallax-medium,
+  .parallax-fast {
+    transform: none !important;
+  }
 }
