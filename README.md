@@ -41,8 +41,8 @@ Soc Ops turns networking events into interactive games. Players mingle with othe
 Get up and running in 60 seconds:
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/my-soc-ops.git
+# Clone your repository (replace with your GitHub username)
+git clone https://github.com/YOUR-USERNAME/my-soc-ops.git
 cd my-soc-ops
 
 # Install dependencies
@@ -111,8 +111,6 @@ MIT © [Harald Kirschner](https://github.com/digitarald)
 ---
 
 <div align="center">
-
-**[⭐ Star this repo](https://github.com/yourusername/my-soc-ops)** if you find it useful!
 
 Made with ❤️ for better networking experiences
 
