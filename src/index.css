@@ -1,11 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-marked: #dcfce7;
-  --color-marked-border: #22c55e;
-  --color-bingo: #fbbf24;
+  --color-accent: #ff6b6b;
+  --color-accent-light: #ff8c8c;
+  --color-marked: #ffd93d;
+  --color-marked-border: #f4a460;
+  --color-bingo: #ff6b9d;
+  --color-marked-alt: #a8e6cf;
+  --color-marked-border-alt: #56ab91;
+  --color-paper: #fffbf0;
+  --color-sketch: #8b7355;
+}
+
+@keyframes sketchy-line {
+  0%, 100% { transform: rotate(0deg) scaleX(1); }
+  25% { transform: rotate(-0.5deg) scaleX(1.01); }
+  50% { transform: rotate(0.5deg) scaleX(0.99); }
+  75% { transform: rotate(-0.3deg) scaleX(1.02); }
+}
+
+@keyframes doodle-appear {
+  0% { opacity: 0; transform: scale(0.95) rotate(-5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
 html,
@@ -16,6 +33,34 @@ body,
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Caveat', cursive, system-ui, -apple-system, sans-serif;
   -webkit-tap-highlight-color: transparent;
+  background: #fffbf0 radial-gradient(circle at 2px 2px, #d4c5b9 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Sketchy doodle border utility */
+.doodle-border {
+  border: 2px solid #8b7355;
+  border-radius: 8px 12px 10px 6px;
+  box-shadow:
+    1px 1px 0 rgba(139, 115, 85, 0.1),
+    2px 2px 0 rgba(139, 115, 85, 0.05),
+    inset 0 0 0 1px rgba(255, 251, 240, 0.5);
+}
+
+/* Rough corners CSS doodle effect */
+.rough-doodle {
+  border-radius: 12px 6px 14px 8px / 8px 14px 6px 12px;
+  border: 2.5px solid #8b7355;
+}
+
+/* Marker/crayon effect text */
+.marker-text {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow:
+    1px 1px 0 rgba(255, 251, 240, 0.5),
+    -1px -1px 0 rgba(139, 115, 85, 0.1);
 }
