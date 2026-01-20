@@ -45,6 +45,13 @@ Get up and running in 60 seconds:
 git clone https://github.com/YOUR-USERNAME/my-soc-ops.git
 cd my-soc-ops
 
+# Configure git user (local to this repository)
+git config --local user.name "Your Name"
+git config --local user.email "your-email@example.com"
+# 💡 Tip: Use GitHub's noreply email to keep your address private:
+#    git config --local user.email "USERNAME@users.noreply.github.com"
+#    Find your noreply address at: https://github.com/settings/emails
+
 # Install dependencies
 npm install
 
