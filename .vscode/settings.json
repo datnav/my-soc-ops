@@ -20,5 +20,13 @@
   "chat.viewSessions.enabled": true,
   "github.copilot.chat.cli.customAgents.enabled": true,
   "scm.repositories.explorer": true,
-  "chat.checkpoints.showFileChanges": true
+  "chat.checkpoints.showFileChanges": true,
+  "chat.mcp.serverSampling": {
+    "my-soc-ops/.vscode/mcp.json: microsoft-learn": {
+      "allowedModels": [
+        "copilot/claude-sonnet-4.5",
+        "copilot/auto"
+      ]
+    }
+  }
 }

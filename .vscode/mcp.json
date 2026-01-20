@@ -8,6 +8,10 @@
         "--browser=msedge",
         // "--headless=true"  // Run in faster headless mode
       ]
+    },
+    "microsoft-learn": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
     }
   }
 }
